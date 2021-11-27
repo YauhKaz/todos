@@ -13,8 +13,11 @@ const Form = (props) => {
   };
   const handerSubmit = (event) => {
     event.preventDefault();
-    dispatch(addTodo(todos.length, text));
-    setText('');
+    if (text.trim() === '') alert('You need some write');
+    else {
+      dispatch(addTodo(todos.length, text.trim()));
+      setText('');
+    }
   };
   return (
     <form onSubmit = { handerSubmit }>

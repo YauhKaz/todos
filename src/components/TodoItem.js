@@ -20,9 +20,15 @@ const TodoItem = ({ todo }) => {
 
   const handerSubmit = (event) => {
     event.preventDefault();
-    const resultAfterEditTodo = todos.map(item => item.title = (item.id === todo.id) ? text : item.title);
-    dispatch({ type: LOAD_TODO, payload: resultAfterEditTodo })
-    setIsEdit(false);
+    if (text.trim() === '') { 
+      setText(todo.title);
+      alert('You need some write');
+    }
+    else {
+      const resultAfterEditTodo = todos.map(item => item.title = (item.id === todo.id) ? text.trim() : item.title);
+      dispatch({ type: LOAD_TODO, payload: resultAfterEditTodo })
+      setIsEdit(false);
+    }  
   };
 
   return (
