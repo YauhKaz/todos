@@ -20,7 +20,6 @@ const TodoItem = ({ todo }) => {
 
   const handerSubmit = (event) => {
     event.preventDefault();
-    console.log(text);
     const resultAfterEditTodo = todos.map(item => item.title = (item.id === todo.id) ? text : item.title);
     dispatch({ type: LOAD_TODO, payload: resultAfterEditTodo })
     setIsEdit(false);
@@ -35,7 +34,8 @@ const TodoItem = ({ todo }) => {
         <form onSubmit = { handerSubmit }>
           <input type = 'text' value = { text } onChange={ handlerChange }/>
           <input type = 'submit' value = 'Update' />
-        </form>}
+        </form>
+        }
     </li>
   )
 }
