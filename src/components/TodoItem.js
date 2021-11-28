@@ -2,6 +2,11 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DELETE_TODO, LOAD_TODO } from '../store/constants';
+import SButton from '../styled/SButton';
+import SForm from '../styled/SForm';
+import SInput from '../styled/SInput';
+import SLi from '../styled/SLi';
+import SSpan from '../styled/SSpan';
 
 const TodoItem = ({ todo }) => {
   const [ isEdit, setIsEdit ] = useState(false);
@@ -32,17 +37,19 @@ const TodoItem = ({ todo }) => {
   };
 
   return (
-    <li>
-      {todo.title}
-      <button onClick = { () => deleteHandler(todo.id) }>Delete</button>
-      <button onClick = { () => setIsEdit(!isEdit) }>Edit</button>
+    <SLi>
+      <SSpan>{todo.title}</SSpan>
+      <div>
+        <SButton onClick = { () => deleteHandler(todo.id) }>Delete</SButton>
+        <SButton onClick = { () => setIsEdit(!isEdit) }>Edit</SButton>
+      </div>
       {isEdit && 
-        <form onSubmit = { handerSubmit }>
-          <input type = 'text' value = { text } onChange={ handlerChange }/>
-          <input type = 'submit' value = 'Update' />
-        </form>
+        <SForm onSubmit = { handerSubmit }>
+          <SInput type = 'text' value = { text } onChange={ handlerChange }/>
+          <SInput type = 'submit' value = 'Update' />
+        </SForm>
         }
-    </li>
+    </SLi>
   )
 }
 

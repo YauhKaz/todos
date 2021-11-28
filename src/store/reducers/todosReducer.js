@@ -1,16 +1,7 @@
 import { ADD_TODO, LOAD_TODO, DELETE_TODO } from '../constants';
 
 const initialState = {
-  todos: [
-    {
-      id: 0,
-      title: 'Buy butter',
-    },
-    {
-      id: 1,
-      title: 'Buy milk',
-    },
-  ]
+  todos: []
 };
 
 const listState = (state = initialState, action) => {

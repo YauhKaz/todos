@@ -1,18 +1,20 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import TodoList from '../components/TodoList';
+import SButton from '../styled/SButton';
+import SDiv from '../styled/SDiv';
 
 const Todopage = () => {
   return (
-    <div>
-      <Link to = '/'>
-        <button>
-          Back
-        </button>
-      </Link>
-      <p>Todopage</p>
+    <SDiv>
+      <h2>Your ToDos for Today</h2>
       <TodoList/>
-    </div>    
+      <Link to = '/'>
+        <SButton style = {{ display: "flex", justifyContent: "flex-start" }}>
+          Back
+        </SButton>
+      </Link>
+    </SDiv>    
   )
 }
 

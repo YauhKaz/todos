@@ -1,9 +1,12 @@
 import './App.css';
+import Layout from './styled/Layout';
 import Routing from './components/Routing';
 
 function App() {
   return (
-    <Routing/>
+    <Layout>
+      <Routing/>
+    </Layout>
   );
 }
 

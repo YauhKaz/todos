@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import TodoItem from '../components/TodoItem';
-
+import SUl from '../styled/SUl';
 
 const TodoList = () => {
   let isCount = false;
@@ -9,10 +9,10 @@ const TodoList = () => {
   if (todos.length === 0) isCount = true;
   else isCount = false;
   return (
-    <ul>
-      { isCount && <p>Not have todos</p> }
+    <SUl>
+      { isCount && <p style={{ display: "flex", justifyContent: "center" }}>Not have todos</p> }
       {todos.map(todo => <TodoItem key = { todo.id } todo = { todo } />)}
-    </ul>
+    </SUl>
   )
 }
 

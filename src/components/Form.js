@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodo } from '../store/actions';
+import SForm from '../styled/SForm';
+import SInput from '../styled/SInput';
 
 const Form = (props) => {
   const [text, setText] = useState('');
@@ -20,10 +22,10 @@ const Form = (props) => {
     }
   };
   return (
-    <form onSubmit = { handerSubmit }>
-      <input type = 'text' onChange = { handlerChange } value = { text }/>
-      <input type = 'submit' value = {props.name} />
-    </form>
+    <SForm onSubmit = { handerSubmit }>
+      <SInput type = 'text' onChange = { handlerChange } value = { text }/>
+      <SInput type = 'submit' value = {props.name} />
+    </SForm>
   )
 }
 
